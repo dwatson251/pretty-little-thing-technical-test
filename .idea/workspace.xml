@@ -1,9 +1,378 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c864c564-8c6d-48e2-bc01-8f2eae6f2d46" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.env.dist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.php_cs.dist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/doctrine/entity/Product.orm.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/doctrine_migrations.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/messenger.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/prod/doctrine.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/test/doctrine.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/routes/annotations.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/2021/04/Version20210404220231.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/phpcs.xml.dist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/phpunit.xml.dist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Application/Command/CreateProductCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Application/Command/ImportProductCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Application/Command/UpdateProductCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Domain/Handler/CreateProductCommandHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Domain/Handler/ImportProductCommandHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Domain/Handler/UpdateProductCommandHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Domain/Model/NormalPriceBelowZeroException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Domain/Model/NormalPriceNotFloatException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Domain/Model/Product.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Domain/Model/ProductRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Domain/Model/ProductUpdate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Domain/Model/SpecialPriceAboveNormalPriceException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Domain/Model/SpecialPriceBelowZeroException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Domain/Model/SpecialPriceNotFloatException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Domain/Response/ProductCreatedResponse.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Domain/Response/ProductUpdatedResponse.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Domain/Response/ResponseInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Infrastructure/Presentation/CLI/InputFileHasInvalidHeaderException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Infrastructure/Presentation/CLI/InputFileHasTooLittleFieldsException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Infrastructure/Presentation/CLI/InputFileHasTooManyFieldsException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Infrastructure/Presentation/CLI/InputFileIsEmptyException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Infrastructure/Presentation/CLI/InvalidResponseException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Infrastructure/Presentation/CLI/ProductImportCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Infrastructure/Repository/Doctrine/ProductRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Infrastructure/Repository/InMemory/ProductRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Product/Infrastructure/Repository/ProductSkuNotFoundException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Kernel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Integration/Provider/ProductImport/bad_validation.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Integration/Provider/ProductImport/duplicate_sku.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Integration/Provider/ProductImport/empty_file.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Integration/Provider/ProductImport/en_mass.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Integration/Provider/ProductImport/extraneous_fields.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Integration/Provider/ProductImport/incorrect_special_price.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Integration/Provider/ProductImport/invalid_delimeter.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Integration/Provider/ProductImport/missing_special_price.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/Product/ProductCreateTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/Product/ProductImportTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/Product/ProductUpdateTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/bootstrap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/PrettyLittleThingTechnicalTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PrettyLittleThingTechnicalTest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/console" beforeDir="false" afterPath="$PROJECT_DIR$/bin/console" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kernel.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />
+      <path value="$PROJECT_DIR$/vendor/exussum12/coverage-checker" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-eventmanager" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan-symfony" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan-doctrine" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/theseer/fdomdocument" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/sql-formatter" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/migrations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/proxy-manager-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/vendor/symfony/doctrine-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/messenger" />
+      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/vendor/symfony/redis-messenger" />
+      <path value="$PROJECT_DIR$/vendor/symfony/browser-kit" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/amqp-messenger" />
+      <path value="$PROJECT_DIR$/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/vendor/symfony/doctrine-messenger" />
+      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/finder-facade" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/phpcpd" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/friendsofphp/proxy-manager-lts" />
+      <path value="$PROJECT_DIR$/vendor/friendsofphp/php-cs-fixer" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/vendor/php-cs-fixer/diff" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/phpmd/phpmd" />
+      <path value="$PROJECT_DIR$/vendor/squizlabs/php_codesniffer" />
+      <path value="$PROJECT_DIR$/vendor/pdepend/pdepend" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1qd04pD3QhfJFxhnEt6f3WKtLYj" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.jetbrains.php.lang.actions.generation.PhpGenerateFieldAccessorHandlerBase$MyMemberChooser.fluent.setters.last.selected" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Product/Infrastructure/Presentation/CLI" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\dnlwtsn\Code\PrettyLittleThingTechnicalTest\src\Product\Infrastructure\Repository" />
+      <recent name="C:\Users\dnlwtsn\Code\PrettyLittleThingTechnicalTest\src" />
+      <recent name="C:\Users\dnlwtsn\Code\PrettyLittleThingTechnicalTest\src\PrettyLittleThing\Shared\Infrastructure" />
+      <recent name="C:\Users\dnlwtsn\Code\PrettyLittleThingTechnicalTest\src\PrettyLittleThing\Shared" />
+      <recent name="C:\Users\dnlwtsn\Code\PrettyLittleThingTechnicalTest\src\PrettyLittleThing\Product\Domain" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\dnlwtsn\Code\PrettyLittleThingTechnicalTest\src\Product\Infrastructure\Presentation\CLI" />
+      <recent name="C:\Users\dnlwtsn\Code\PrettyLittleThingTechnicalTest" />
+      <recent name="C:\Users\dnlwtsn\Code\PrettyLittleThingTechnicalTest\src\Product\Domain\Handler" />
+      <recent name="C:\Users\dnlwtsn\Code\PrettyLittleThingTechnicalTest\src\Product\Application\Command" />
+    </key>
+  </component>
+  <component name="RunManager" selected="PHPUnit.ProductImportTest">
+    <configuration name="ProductCreateTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="Ubuntu" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <TestRunner class="Tests\Unit\Domain\Product\ProductCreateTest" configuration_file="/mnt/c/Users/dnlwtsn/Code/PrettyLittleThingTechnicalTest/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Unit/Domain/Product/ProductCreateTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ProductCreateTest.testAProductIsCreated" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="Ubuntu" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <TestRunner class="Tests\Unit\Domain\Product\ProductCreateTest" configuration_file="/mnt/c/Users/dnlwtsn/Code/PrettyLittleThingTechnicalTest/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Unit/Domain/Product/ProductCreateTest.php" method="testAProductIsCreated" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ProductImportTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\Domain\Product\ProductImportTest" file="$PROJECT_DIR$/tests/Unit/Domain/Product/ProductImportTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ProductImportTest.testExceptionThrownWhenNormalPriceIsNotAFloat" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="Ubuntu" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <TestRunner class="Tests\Unit\Domain\Product\ProductImportTest" configuration_file="/mnt/c/Users/dnlwtsn/Code/PrettyLittleThingTechnicalTest/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Unit/Domain/Product/ProductImportTest.php" method="testExceptionThrownWhenNormalPriceIsNotAFloat" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="phpunit.xml.dist" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner scope="XML" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHPUnit.ProductImportTest" />
+        <item itemvalue="PHPUnit.ProductImportTest.testExceptionThrownWhenNormalPriceIsNotAFloat" />
+        <item itemvalue="PHPUnit.ProductCreateTest.testAProductIsCreated" />
+        <item itemvalue="PHPUnit.ProductCreateTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c864c564-8c6d-48e2-bc01-8f2eae6f2d46" name="Default Changelist" comment="" />
+      <created>1617393971106</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1617393971106</updated>
+      <workItem from="1617393972131" duration="1241000" />
+      <workItem from="1617398415758" duration="20736000" />
+      <workItem from="1617571174310" duration="24734000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="867" y="354" key="#CLI_Interpreters" timestamp="1617647787113">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="867" y="354" key="#CLI_Interpreters/0.0.2560.1400@0.0.2560.1400" timestamp="1617647787113" />
+    <state x="949" y="509" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1617621051938">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="949" y="509" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1617621051938" />
+    <state x="445" y="382" key="#com.intellij.ide.util.MemberChooser" timestamp="1617577969127">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="445" y="382" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1617577969127" />
+    <state x="421" y="384" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1617647410154">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="421" y="384" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1617647410154" />
+    <state x="370" y="458" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1617650266052">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="370" y="458" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1617650266052" />
+    <state x="1060" y="455" key="FileChooserDialogImpl" timestamp="1617647775596">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1060" y="455" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1617647775596" />
+    <state width="2517" height="401" key="GridCell.Tab.0.bottom" timestamp="1617649316003">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1617649316003" />
+    <state width="2517" height="401" key="GridCell.Tab.0.center" timestamp="1617649316003">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="401" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1617649316003" />
+    <state width="2517" height="401" key="GridCell.Tab.0.left" timestamp="1617649316003">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="401" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1617649316003" />
+    <state width="2517" height="401" key="GridCell.Tab.0.right" timestamp="1617649316003">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="401" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1617649316003" />
+    <state x="960" y="423" key="NewPhpClassDialog" timestamp="1617650830976">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="960" y="423" key="NewPhpClassDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1617650830976" />
+    <state x="781" y="345" key="SettingsEditor" timestamp="1617455269226">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="781" y="345" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1617455269226" />
+    <state x="100" y="100" width="2360" height="1200" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1617460820272">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="100" y="100" width="2360" height="1200" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1617460820272" />
+    <state x="347" y="436" width="585" height="534" key="find.popup" timestamp="1617573715343">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="347" y="436" width="585" height="534" key="find.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1617573715343" />
+    <state x="943" y="336" key="run.anything.popup" timestamp="1617470016716">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="943" y="336" key="run.anything.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1617470016716" />
   </component>
 </project>
