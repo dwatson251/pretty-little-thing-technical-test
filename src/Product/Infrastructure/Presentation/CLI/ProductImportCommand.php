@@ -152,10 +152,15 @@ class ProductImportCommand extends Command
      * @throws InputFileHasTooManyFieldsException
      * @throws InputFileHasTooLittleFieldsException
      * @throws InputFileIsEmptyException
+     * @throws InputFileNotFoundException
      */
     private function parseInputFile(string $file): Generator
     {
-        $handle = fopen($file, 'r');
+        try {
+            $handle = fopen($file, 'r');
+        } catch (\Exception $e) {
+            throw new InputFileNotFoundException('No such file found: '. $file);
+        }
 
         $line = fgets($handle);
 
