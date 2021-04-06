@@ -35,6 +35,15 @@ Please ensure you stick to the CSV format but instead using (|) as a delimiter.
 Then run
 `$php bin/console  plt:product:import --filename my-products-file.csv --no-debug`
 
+## Debugging
+
+The console can output additional information such as products that have 
+errored, memory usage and time taken
+
+To show these, use the command with the `--debug` option
+
+`$php bin/console  plt:product:import --filename my-products-file.csv --debug --no-debug`
+
 ## Tools
 ### Unit tests
 For unit tests, run:

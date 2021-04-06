@@ -54,30 +54,40 @@ class ImportProductCommandHandler implements MessageHandlerInterface
 
         // Validation
         if (false === $this->isFloat($command->getNormalPrice())) {
-            throw new NormalPriceNotFloatException();
+            throw new NormalPriceNotFloatException(
+                sprintf('The normalPrice on sku %s provided must be a positive float', $command->getSku())
+            );
         }
 
         // Convert normalPrice to pence
         $normalPrice = (int) $command->getNormalPrice() * 100;
 
         if ($normalPrice < 0) {
-            throw new NormalPriceBelowZeroException('The normal price provided must be a positive float');
+            throw new NormalPriceBelowZeroException(
+                sprintf('The normalPrice on sku %s provided must be a positive float', $command->getSku())
+            );
         }
 
         if (false === empty($command->getSpecialPrice())) {
             if (false === $this->isFloat($command->getSpecialPrice())) {
-                throw new SpecialPriceNotFloatException();
+                throw new SpecialPriceNotFloatException(
+                    sprintf('The specialPrice on sku %s provided must be a positive float', $command->getSku())
+                );
             }
 
             if ($command->getNormalPrice() < $command->getSpecialPrice()) {
-                throw new SpecialPriceAboveNormalPriceException();
+                throw new SpecialPriceAboveNormalPriceException(
+                    sprintf('The specialPrice on sku %s is higher than the normalPrice', $command->getSku())
+                );
             }
 
             // Convert specialPrice to pence
             $specialPrice = (int) $command->getSpecialPrice() * 100;
 
             if ($specialPrice < 0) {
-                throw new SpecialPriceBelowZeroException('The special price provided must be a positive float');
+                throw new SpecialPriceBelowZeroException(
+                    sprintf('The specialPrice on sku %s provided must be a positive float', $command->getSku())
+                );
             }
         }
 

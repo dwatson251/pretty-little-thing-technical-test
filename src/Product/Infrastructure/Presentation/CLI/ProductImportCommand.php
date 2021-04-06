@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace PrettyLittleThing\Product\Infrastructure\Presentation\CLI;
 
+use Exception;
 use Generator;
 use PrettyLittleThing\Product\Application\Command\ImportProductCommand;
 use PrettyLittleThing\Product\Domain\Response\ProductCreatedResponse;
@@ -48,6 +49,12 @@ class ProductImportCommand extends Command
                 InputOption::VALUE_REQUIRED,
                 'A filepath containing the CSV file you wish to use for importing products with.'
             )
+            ->addOption(
+                'debug',
+                null,
+                InputOption::VALUE_NONE,
+                'Option enables debugging output'
+            )
             ->setHelp(
                 "Given a CSV file to import from, imports a set of products. \n".
                 "The fields in the CSV must be separated by a (|) and each row should not contain no more than 4 fields. \n\n".
@@ -88,7 +95,7 @@ class ProductImportCommand extends Command
         $file = $input->getOption('filename');
 
         $rowCount = 0;
-        $errorCount = 0;
+        $errors = [];
 
         $createdCount = 0;
         $updatedCount = 0;
@@ -120,8 +127,8 @@ class ProductImportCommand extends Command
                                 'The dispatcher returned an invalid response type.'
                             );
                     }
-                } catch (\Exception $e) {
-                    $errorCount++;
+                } catch (Exception $e) {
+                    $errors[] = $e;
                 }
             }
 
@@ -129,14 +136,25 @@ class ProductImportCommand extends Command
 
             $output->writeln('Command Finished');
             $output->writeln(sprintf('Rows: %d', $rowCount));
-            $output->writeln(sprintf('Errors: %d', $errorCount));
+            $output->writeln(sprintf('Errors: %d', count($errors)));
             $output->writeln(sprintf('Updates: %d', $updatedCount));
             $output->writeln(sprintf('Creates: %d', $createdCount));
 
-            $output->writeln(sprintf('Memory: %s', $this->formatMemory($stopwatchEvent->getMemory())));
-            $output->writeln(sprintf('Time: %s', $this->formatDuration($stopwatchEvent->getDuration())));
+            if ($this->isDebuggingEnabled($input)) {
+                $output->writeln("\n======== DEBUG OUTPUT ========");
+                $output->writeln(sprintf('Memory: %s', $this->formatMemory($stopwatchEvent->getMemory())));
+                $output->writeln(sprintf('Time: %s', $this->formatDuration($stopwatchEvent->getDuration())));
+                if (count($errors)) {
+                    $output->writeln("----------- ERRORS -----------");
+                    /** @var Exception $error */
+                    foreach ($errors as $index => $error) {
+                        $output->writeln(($index + 1).") ".$error->getMessage());
+                    }
+                }
+                $output->writeln("==============================");
+            }
 
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $output->writeln("The input file could not be parsed: ".$e->getMessage());
         }
 
@@ -158,7 +176,7 @@ class ProductImportCommand extends Command
     {
         try {
             $handle = fopen($file, 'r');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             throw new InputFileNotFoundException('No such file found: '. $file);
         }
 
@@ -232,5 +250,10 @@ class ProductImportCommand extends Command
     private function formatDuration($microseconds)
     {
         return $microseconds / 1000 . ' s';
+    }
+
+    private function isDebuggingEnabled(InputInterface $input): bool
+    {
+        return (bool) $input->getOption('debug');
     }
 }
