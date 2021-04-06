@@ -44,6 +44,10 @@ To show these, use the command with the `--debug` option
 
 `$php bin/console  plt:product:import --filename my-products-file.csv --debug --no-debug`
 
+## Functional Test Cases
+
+Additional functional test cases can be found within `tests/Integration/Provider/ProductImport`
+
 ## Tools
 ### Unit tests
 For unit tests, run:
