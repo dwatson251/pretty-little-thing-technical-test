@@ -25,19 +25,19 @@ services:
     PrettyLittleThing\Product\Domain\Model\ProductRepositoryInterface: '@PrettyLittleThing\Product\Infrastructure\Repository\Doctrine\ProductRepository'
 
     # COMMAND HANDLERS
-    PrettyLittleThing\Product\Domain\Handler\ImportProductCommandHandler:
+    PrettyLittleThing\Product\Application\CommandHandler\ImportProductCommandHandler:
         public: true
         tags:
             - { name: command_handler, handles: PrettyLittleThing\Product\Application\Command\ImportProductCommand }
 
 
-    PrettyLittleThing\Product\Domain\Handler\CreateProductCommandHandler:
+    PrettyLittleThing\Product\Application\CommandHandler\CreateProductCommandHandler:
         public: true
         tags:
             - { name: command_handler, handles: PrettyLittleThing\Product\Application\Command\CreateProductCommand }
 
 
-    PrettyLittleThing\Product\Domain\Handler\UpdateProductCommandHandler:
+    PrettyLittleThing\Product\Application\CommandHandler\UpdateProductCommandHandler:
         public: true
         tags:
             - { name: command_handler, handles: PrettyLittleThing\Product\Application\Command\UpdateProductCommand }
