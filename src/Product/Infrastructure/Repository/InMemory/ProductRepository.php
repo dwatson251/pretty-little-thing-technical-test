@@ -7,6 +7,7 @@ use PrettyLittleThing\Product\Domain\Model\Product;
 use PrettyLittleThing\Product\Domain\Model\ProductRepositoryInterface;
 use PrettyLittleThing\Product\Domain\Model\ProductUpdate;
 use PrettyLittleThing\Product\Infrastructure\Repository\ProductSkuNotFoundException;
+use Throwable;
 
 class ProductRepository implements ProductRepositoryInterface
 {
@@ -25,13 +26,11 @@ class ProductRepository implements ProductRepositoryInterface
      */
     public function findBySku(string $sku): Product
     {
-        try {
-            $product = $this->products[$sku];
-        } catch (\Exception $e) {
+        if (false === isset($this->products[$sku])) {
             throw new ProductSkuNotFoundException($sku);
         }
 
-        return $product;
+        return $this->products[$sku];
     }
 
     /**
