@@ -91,20 +91,24 @@ class ImportProductCommandHandler implements MessageHandlerInterface
             }
         }
 
+        $description = htmlspecialchars($command->getDescription());
+
         try {
             $product = $this->productRepository->findBySku($command->getSku());
 
             $envelope = $this->eventBus->dispatch(new UpdateProductCommand(
                 $product->getSku(),
-                $command->getDescription(),
+                $description,
                 $normalPrice,
                 $specialPrice
             ));
 
         } catch (ProductSkuNotFoundException $e) {
+            $sku = htmlspecialchars($command->getSku());
+
             $envelope = $this->eventBus->dispatch(new CreateProductCommand(
-                $command->getSku(),
-                $command->getDescription(),
+                $sku,
+                $description,
                 $normalPrice,
                 $specialPrice
             ));
