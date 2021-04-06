@@ -214,9 +214,13 @@ class ProductImportCommand extends Command
                 );
             }
 
-            yield array_combine($headers, $rowFields);
+            // Ensures the length of the input row is always 4.
+            $rowFieldsPadded = array_pad($rowFields, 4, null);
+
+            yield array_combine($headers, $rowFieldsPadded);
 
             unset($rowFields);
+            unset($rowFieldsPadded);
         }
 
         unset($headers);
