@@ -16,12 +16,12 @@ class CreateProductCommand
     private $description;
 
     /**
-     * @var float
+     * @var int
      */
     private $normalPrice;
 
     /**
-     * @var float
+     * @var int
      */
     private $specialPrice;
 
@@ -29,14 +29,14 @@ class CreateProductCommand
      * CreateProductCommand constructor.
      * @param string $sku
      * @param string $description
-     * @param float $normalPrice
-     * @param float|null $specialPrice
+     * @param int $normalPrice
+     * @param int|null $specialPrice
      */
     public function __construct(
         string $sku,
         string $description,
-        float $normalPrice,
-        float $specialPrice = null
+        int $normalPrice,
+        int $specialPrice = null
     ) {
         $this->sku = $sku;
         $this->description = $description;
@@ -61,17 +61,17 @@ class CreateProductCommand
     }
 
     /**
-     * @return float
+     * @return int
      */
-    public function getNormalPrice(): float
+    public function getNormalPrice(): int
     {
         return $this->normalPrice;
     }
 
     /**
-     * @return null|float
+     * @return null|int
      */
-    public function getSpecialPrice(): ?float
+    public function getSpecialPrice(): ?int
     {
         return $this->specialPrice;
     }

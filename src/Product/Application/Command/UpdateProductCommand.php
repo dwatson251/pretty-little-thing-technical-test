@@ -17,12 +17,12 @@ class UpdateProductCommand
     private $description;
 
     /**
-     * @var float
+     * @var int
      */
     private $normalPrice;
 
     /**
-     * @var float
+     * @var int
      */
     private $specialPrice;
 
@@ -36,8 +36,8 @@ class UpdateProductCommand
     public function __construct(
         string $sku,
         string $description,
-        float $normalPrice,
-        float $specialPrice = null
+        int $normalPrice,
+        int $specialPrice = null
     ) {
         $this->sku = $sku;
         $this->description = $description;
@@ -62,17 +62,17 @@ class UpdateProductCommand
     }
 
     /**
-     * @return float
+     * @return int
      */
-    public function getNormalPrice(): float
+    public function getNormalPrice(): int
     {
         return $this->normalPrice;
     }
 
     /**
-     * @return null|float
+     * @return null|int
      */
-    public function getSpecialPrice(): ?float
+    public function getSpecialPrice(): ?int
     {
         return $this->specialPrice;
     }

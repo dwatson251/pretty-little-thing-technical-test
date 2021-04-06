@@ -57,7 +57,8 @@ class ImportProductCommandHandler implements MessageHandlerInterface
             throw new NormalPriceNotFloatException();
         }
 
-        $normalPrice = (float) $command->getNormalPrice();
+        // Convert normalPrice to pence
+        $normalPrice = (int) $command->getNormalPrice() * 100;
 
         if ($normalPrice < 0) {
             throw new NormalPriceBelowZeroException('The normal price provided must be a positive float');
@@ -72,7 +73,8 @@ class ImportProductCommandHandler implements MessageHandlerInterface
                 throw new SpecialPriceAboveNormalPriceException();
             }
 
-            $specialPrice = (float) $command->getSpecialPrice();
+            // Convert specialPrice to pence
+            $specialPrice = (int) $command->getSpecialPrice() * 100;
 
             if ($specialPrice < 0) {
                 throw new SpecialPriceBelowZeroException('The special price provided must be a positive float');
