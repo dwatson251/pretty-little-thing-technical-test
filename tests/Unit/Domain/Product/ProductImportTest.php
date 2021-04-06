@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 use PrettyLittleThing\Product\Application\Command\CreateProductCommand;
 use PrettyLittleThing\Product\Application\Command\ImportProductCommand;
 use PrettyLittleThing\Product\Application\Command\UpdateProductCommand;
-use PrettyLittleThing\Product\Domain\Handler\ImportProductCommandHandler;
+use PrettyLittleThing\Product\Application\CommandHandler\ImportProductCommandHandler;
 use PrettyLittleThing\Product\Domain\Model\NormalPriceBelowZeroException;
 use PrettyLittleThing\Product\Domain\Model\NormalPriceNotFloatException;
 use PrettyLittleThing\Product\Domain\Model\Product;
@@ -24,7 +24,7 @@ use Symfony\Component\Messenger\MessageBusInterface;
 
 /**
  * @internal
- * @coversDefaultClass \PrettyLittleThing\Product\Domain\Handler\ImportProductCommandHandler
+ * @coversDefaultClass \PrettyLittleThing\Product\Application\CommandHandler\ImportProductCommandHandler
  */
 class ProductImportTest extends TestCase
 {

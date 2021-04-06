@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace PrettyLittleThing\Product\Domain\Handler;
+namespace PrettyLittleThing\Product\Application\CommandHandler;
 
 
 use PrettyLittleThing\Product\Application\Command\CreateProductCommand;

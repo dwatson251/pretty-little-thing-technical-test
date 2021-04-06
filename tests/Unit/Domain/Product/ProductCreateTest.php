@@ -6,12 +6,12 @@ namespace Tests\Unit\Domain\Product;
 
 use PHPUnit\Framework\TestCase;
 use PrettyLittleThing\Product\Application\Command\CreateProductCommand;
-use PrettyLittleThing\Product\Domain\Handler\CreateProductCommandHandler;
+use PrettyLittleThing\Product\Application\CommandHandler\CreateProductCommandHandler;
 use PrettyLittleThing\Product\Domain\Model\ProductRepositoryInterface;
 
 /**
  * @internal
- * @coversDefaultClass \PrettyLittleThing\Product\Domain\Handler\CreateProductCommandHandler
+ * @coversDefaultClass \PrettyLittleThing\Product\Application\CommandHandler\CreateProductCommandHandler
  */
 class ProductCreateTest extends TestCase
 {
